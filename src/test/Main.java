@@ -14,7 +14,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         boolean exit = false;
 
-        System.out.println("🏦 Basit Banka Hesap Simülasyonu Başladı!");
+        System.out.println("Basit Banka Hesap Simülasyonu Başladı!");
 
         while (!exit) {
             System.out.println("\n--- Ana Menü ---");
@@ -56,10 +56,10 @@ public class Main {
 
                 case 0:
                     exit = true;
-                    System.out.println("✅ Banka uygulamasından çıkılıyor...");
+                    System.out.println(" Banka uygulamasından çıkılıyor...");
                     break;
                 default:
-                    System.out.println("❌ Geçersiz seçim, tekrar deneyin.");
+                    System.out.println(" Geçersiz seçim, tekrar deneyin.");
             }
         }
 

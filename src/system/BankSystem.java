@@ -30,7 +30,7 @@ public class BankSystem {
 
         Customer customer = new Customer(id, name, address);
         customers.add(customer);
-        System.out.println("✅ Yeni müşteri eklendi: " + customer.getName());
+        System.out.println("Yeni müşteri eklendi: " + customer.getName());
         return customer;
     }
 
@@ -78,7 +78,7 @@ public class BankSystem {
         if (acc != null) {
             acc.closeAccount();          // Account sınıfındaki metot çağrılıyor
             accounts.remove(acc);        // Listeden sil
-            System.out.println("✅ Hesap silindi: " + accNumber);
+            System.out.println("Hesap silindi: " + accNumber);
         }
     }
     
@@ -89,7 +89,7 @@ public class BankSystem {
                 return acc;
             }
         }
-        System.out.println("❌ Hesap bulunamadı!");
+        System.out.println(" Hesap bulunamadı!");
         return null;
     }
 
@@ -132,7 +132,7 @@ public class BankSystem {
 
     // --------------------- Ay Geçme Simülasyonu ---------------------
     public void simulateMonthPass() {
-        System.out.println("📅 Bir ay geçiyor... Tüm hesaplar güncelleniyor:");
+        System.out.println("Bir ay geçiyor... Tüm hesaplar güncelleniyor:");
         for (Account acc : accounts) {
             // Her hesap kendi tipine göre işlem yapar (Polymorphism)
             if (acc instanceof SavingsAccount) {
