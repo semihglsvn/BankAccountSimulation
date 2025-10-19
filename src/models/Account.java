@@ -50,7 +50,16 @@ public abstract class Account implements IBankOperations {
                ", Sahip: " + owner.getName() +
                ", Bakiye: " + balance + "₺";
     }
-
+	public void simulateMonthPass() {
+		
+		
+	}
+   
+	/**
+	 * Ay geçmesi durumunda otomatik faiz uygulaması yapılır.
+	 * Polymorphism örneği: BasicAccount'ta bu metod hiçbir şey yapmazken,
+	 * SavingsAccount'ta faiz eklenir.
+	 */
     // IBankOperations arayüzündeki metotlar burada tanımlanmaz.
     // Çünkü alt sınıflar (SavingsAccount, CheckingAccount) bu işlemleri kendine göre yapacak.
     // Yani soyutlama (Abstraction) burada devrede.

@@ -22,7 +22,7 @@ public class SavingsAccount extends Account {
 
     public void setInterestRate(double interestRate) {
         if (interestRate < 0) {
-            System.out.println("Faiz oranı negatif olamaz!");
+            // Negatif faiz oranı geçersiz
             return;
         }
         this.interestRate = interestRate;
@@ -32,42 +32,34 @@ public class SavingsAccount extends Account {
     @Override
     public void deposit(double amount) {
         if (amount <= 0) {
-            System.out.println("Yatırılacak tutar 0'dan büyük olmalıdır!");
             return;
         }
         setBalance(getBalance() + amount);
-        System.out.println(amount + "₺ yatırıldı. Yeni bakiye: " + getBalance() + "₺");
     }
 
     @Override
     public void withdraw(double amount) {
-        if (amount <= 0) {
-            System.out.println("Çekilecek tutar 0'dan büyük olmalıdır!");
-            return;
-        }
-        if (amount > getBalance()) {
-            System.out.println("Yetersiz bakiye!");
+        if (amount <= 0 || amount > getBalance()) {
             return;
         }
         setBalance(getBalance() - amount);
-        System.out.println(amount + "₺ çekildi. Kalan bakiye: " + getBalance() + "₺");
     }
 
     @Override
     public void showBalance() {
-        System.out.println("Güncel bakiye: " + getBalance() + "₺ (Faiz oranı: %" + (interestRate * 100) + ")");
+        // GUI tarafında kullanılmayacak, ama konsolda test edilebilir.
+        System.out.println("Bakiye: " + getBalance() + "₺ (Faiz oranı: %" + (interestRate * 100) + ")");
     }
 
     // --------------------- Ek Metotlar ---------------------
 
     /**
-     * Aylık faiz uygular.
-     * Bakiye * faizOranı kadar para ekler.
+     * Aylık faiz uygular ve eklenen faiz miktarını döner.
      */
-    public void applyInterest() {
+    public double applyInterest() {
         double interest = getBalance() * interestRate;
         setBalance(getBalance() + interest);
-        System.out.println("Faiz uygulandı: +" + interest + "₺ → Yeni bakiye: " + getBalance() + "₺");
+        return interest;
     }
 
     /**
@@ -75,8 +67,15 @@ public class SavingsAccount extends Account {
      * Polymorphism örneği: BasicAccount'ta bu metod hiçbir şey yapmazken,
      * SavingsAccount'ta faiz eklenir.
      */
+    @Override
     public void simulateMonthPass() {
-        System.out.println("Bir ay geçti → Faiz hesaplanıyor...");
+    	
         applyInterest();
+    }
+
+    @Override
+    public String toString() {
+        return String.format("SavingsAccount | %s | Faiz Oranı: %.2f%%", 
+                              super.toString(), interestRate * 100);
     }
 }

@@ -37,6 +37,12 @@ public class BasicAccount extends Account {
 
     // Ay geçmesi durumunda hiçbir değişiklik olmaz
     public void simulateMonthPass() {
-        System.out.println("BasicAccount için ay geçti — faiz veya değişim yok.");
+    	
     }
+    @Override
+    public String toString() {
+        return "BasicAccount | " + super.toString();
+    }   
+    
+    
 }

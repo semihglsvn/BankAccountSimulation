@@ -26,7 +26,7 @@ public class Main {
             System.out.println("6. Tüm hesapları göster");
             System.out.println("7. Hesap kapat");
             System.out.println("0. Çıkış");
-            System.out.print("Seçiminiz: ");
+            System.out.print(	"Seçiminiz: ");
 
             int choice = scanner.nextInt();
             scanner.nextLine(); 
